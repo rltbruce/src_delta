@@ -1,0 +1,250 @@
+<div id="formsclient" class="page-layout simple fullwidth" fxLayout="column">
+
+    <!-- HEADER -->
+    <div class="header accent p-24 h-60" fxLayout="row" fxLayoutAlign="start center">
+        <div fxLayout="column" fxLayoutAlign="center start">
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon class="secondary-text s-18">home</mat-icon>
+                <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
+                <span class="secondary-text">Client</span>
+            </div>
+            <!--div class="h1 mt-16">Forms</div-->
+        </div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+
+
+        <div class="horizontal-stepper-wrapper">
+
+            <!-- HORIZONTAL STEPPER EXAMPLE -->
+            <mat-horizontal-stepper class="mat-elevation-z3" [linear]="true">
+
+                <mat-step label="Client" state="phone" [completed]="step1">
+                    <div>
+                        <button mat-raised-button type="button" color="accent" (click)="ajouter()" style="width: 10%;">
+                            Nouveau
+                        </button>
+                        <button mat-raised-button type="button" color="primary" (click)="modifier()" *ngIf="afficherboutonModifSupr" class="ml-4" style="width: 10%;">
+                            Modifier
+                        </button>
+                        <button mat-raised-button type="button" color="warn" (click)="supprimer()" *ngIf="afficherboutonModifSupr" class="ml-4" style="width: 10%;">
+                            Supprimer
+                        </button>
+                    </div><br>
+                    <div>
+                        <mat-tab-group *ngIf="afficherFormAjoutModif">
+                        
+                            <mat-tab label="Formulaire">
+                                <div class="divform" >
+                                    <form name="clientForm" [formGroup]="clientForm" novalidate fxLayout="column" fxLayoutAlign="center center" fxLayout.xs="row">
+                                        <div class="centerinput">
+                                            
+								        <input type="hidden" formControlName="id" [(ngModel)]="client.id">
+                                        <mat-form-field  fxFlex="100" class="pl-4" >
+                                            <mat-label>Code</mat-label>
+                                            <input matInput formControlName="code" [(ngModel)]="client.code">
+                                            <mat-error>
+                                                Code obligatoire
+                                            </mat-error>
+                                        </mat-form-field>
+                        
+                                        <mat-form-field  fxFlex="100" class="pl-4" >
+                                            <mat-label>Nom</mat-label>
+                                            <input matInput formControlName="nom_client" [(ngModel)]="client.nom_client">
+                                            <mat-error>
+                                                Nom obligatoire
+                                            </mat-error>
+                                        </mat-form-field>
+                        
+                                        <mat-form-field  fxFlex="100" class="pl-4" >
+                                            <mat-label>Adresse</mat-label>
+                                            <input matInput formControlName="adresse" [(ngModel)]="client.adresse">
+                                            <mat-error>
+                                                Adresse obligatoire
+                                            </mat-error>
+                                        </mat-form-field>
+                        
+                                        <mat-form-field  fxFlex="100" class="pl-4" >
+                                            <mat-label>Telephone</mat-label>
+                                            <input matInput formControlName="telephone" [(ngModel)]="client.telephone">
+                                            <mat-error>
+                                                Telephone obligatoire
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="centerinput">
+                                        <mat-form-field  fxFlex="100" class="pl-4">
+                                            <mat-label>Fax</mat-label>
+                                            <input matInput formControlName="fax" [(ngModel)]="client.fax">
+                                            <mat-error>
+                                                Fax obligatoire
+                                            </mat-error>
+                                        </mat-form-field>
+                        
+                                        <mat-form-field  fxFlex="100" class="pl-4">
+                                            <mat-label>Email</mat-label>
+                                            <input matInput formControlName="email" [(ngModel)]="client.email">
+                                            <mat-error>
+                                                Email obligatoire
+                                            </mat-error>
+                                        </mat-form-field>
+                        
+                                        <mat-form-field  fxFlex="100" class="pl-4">
+                                            <mat-label>Nif</mat-label>
+                                            <input matInput formControlName="nif" [(ngModel)]="client.nif">
+                                            <mat-error>
+                                                NIF obligatoire
+                                            </mat-error>
+                                        </mat-form-field>
+                        
+                                        <mat-form-field  fxFlex="100" class="pl-4">
+                                            <mat-label>Stat</mat-label>
+                                            <input matInput formControlName="stat" [(ngModel)]="client.stat">
+                                            <mat-error>
+                                                STAT obligatoire
+                                            </mat-error>
+                                        </mat-form-field>
+                                        </div>
+                                        <div class="centerinput">
+                                        <mat-form-field  fxFlex="100" class="pl-4">
+                                            <mat-label>Cif</mat-label>
+                                            <input matInput formControlName="cif" [(ngModel)]="client.cif">
+                                            <mat-error>
+                                                CIF obligatoire
+                                            </mat-error>
+                                        </mat-form-field>
+                        
+                                        <mat-form-field  fxFlex="100" class="pl-4">
+                                            <mat-label>REG COMM</mat-label>
+                                            <input matInput formControlName="reg_comm" [(ngModel)]="client.reg_comm">
+                                            <mat-error>
+                                                REG COMM obligatoire
+                                            </mat-error>
+                                        </mat-form-field>
+                        
+                                        <mat-form-field  fxFlex="100" class="pl-4">
+                                            <mat-label>Groupe app</mat-label>
+                                            <input matInput formControlName="groupe_app" [(ngModel)]="client.groupe_app">
+                                            <mat-error>
+                                                Groupe app obligatoire
+                                            </mat-error>
+                                        </mat-form-field>
+                        
+                                        <mat-form-field  fxFlex="100" class="pl-4">
+                                            <mat-label>Groupe</mat-label>
+                                            <input matInput formControlName="groupe" [(ngModel)]="client.groupe">
+                                            <mat-error>
+                                                Groupe obligatoire
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="centerinput">
+                                        <mat-form-field  fxFlex="100" class="pl-4">
+                                            <mat-label>Capital</mat-label>
+                                            <input matInput formControlName="capital" [(ngModel)]="client.capital">
+                                            <mat-error>
+                                                Capital obligatoire
+                                            </mat-error>
+                                        </mat-form-field>
+                        
+                                        <mat-form-field  fxFlex="100" class="pl-4">
+                                            <mat-label>Effectif</mat-label>
+                                            <input matInput formControlName="effectif" [(ngModel)]="client.effectif">
+                                            <mat-error>
+                                                Effectife obligatoire
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                        <!--div class="terms" fxLayout="row" fxLayoutAlign="center center">
+                                            <mat-checkbox name="terms" aria-label="I read and accept" required>
+                                                <span>I read and accept</span>
+                                            </mat-checkbox>
+                                            <a href="#">terms and conditions</a>
+                                        </div!-->
+                                    <div fxLayout="row" fxLayoutAlign="start start">
+                                        <button (click)="ajout(client,0)" mat-raised-button color="accent" class="submit-button ml-4" aria-label="CREATE AN FORM"
+                                            [disabled]="clientForm.invalid">
+                                            AJOUTER
+                                        </button>
+                                        <button (click)="annuler()" mat-raised-button color="primary" aria-label="ANNULER AN FORM" class="ml-4">
+                                            ANNULER
+                                        </button>
+                                    </div>
+                                    </form>
+                                </div>
+                            </mat-tab>
+                            
+                          </mat-tab-group>
+                    </div><br>
+                    
+                      <div>
+                        <ngx-datatable
+                            class="material"
+                            [rows]="rows_client"
+                            [loadingIndicator]="loadingIndicator"
+                            [columns]="columns"
+                            [columnMode]="'force'"
+                            [headerHeight]="48"
+                            [footerHeight]="56"
+                            [rowHeight]="'auto'"
+                            [scrollbarH]="true"
+                            [reorderable]="reorderable"
+                            [selected]="selected"
+                            [selectionType]="'single'"
+                            (activate)="onActivate($event)"
+                            (select)='onSelectclient($event)'
+                            [limit]="10">
+                        </ngx-datatable>
+                      </div><br>
+                    
+                    <div fxLayout="row" fxLayoutAlign="end end">
+                        <button mat-raised-button matStepperNext type="button" color="accent">Next</button>
+                    </div>
+                </mat-step>
+
+                <mat-step label="Contrat" state="chat" [completed]="step2">
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                        <button class="mr-8" mat-raised-button matStepperPrevious type="button" color="accent">Back</button>
+                        <button mat-raised-button matStepperNext type="button" color="accent">Next</button>
+                    </div>
+                </mat-step>
+
+                <mat-step label="Mission" state="phone">
+                    
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                        <button class="mr-8" mat-raised-button matStepperPrevious type="button" color="accent">Back</button>
+                    </div>
+
+                </mat-step>
+                <ng-template matStepperIcon="phone">
+                    <mat-icon>call_end</mat-icon>
+                </ng-template>
+                <ng-template  matStepperIcon="chat">
+                    <mat-icon>forum</mat-icon>
+                </ng-template><ng-template matStepperIcon="phone">
+                    <mat-icon>call_end</mat-icon>
+                </ng-template>
+            </mat-horizontal-stepper>
+            <!-- / HORIZONTAL STEPPER EXAMPLE -->
+
+        </div>
+    </div>
+    <!-- / CONTENT -->
+  <ng-template #suppressionDialog>
+    <h2 matDialogTitle>Etes-vous sûr de supprimer cet enregistrement ?</h2>
+    <mat-dialog-content>      
+      
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button matDialogClose color="primary" (click)="suppressionConfirmer()">Ok</button>
+      <button mat-button matDialogClose color="primary">Fermer</button>
+    </mat-dialog-actions>
+  </ng-template>
+
+</div>
+
+
